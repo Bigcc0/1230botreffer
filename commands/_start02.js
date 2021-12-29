@@ -1,5 +1,5 @@
 /*CMD
-  command: /start
+  command: /start02
   help: 
   need_reply: 
   auto_retry_time: 
