@@ -26,6 +26,7 @@ function doTouchOwnLink(){
 }
 
 function doAttracted(refUser){
+
   Bot.sendMessage(
     "Hello" + 
     "\n\n" +
@@ -48,6 +49,8 @@ let trackOptions = {
 }
 
 Libs.ReferralLib.track(trackOptions);
+Bot.runCommand("/start02");
+
 
 
 

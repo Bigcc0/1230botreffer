@@ -1,18 +1,32 @@
-/*CMD
-  command: /reflist
-  help: view my Referrals List
-  need_reply: 
-  auto_retry_time: 
-  folder: 
-  answer: 
-  keyboard: 
-  aliases: 📜 my refs
-CMD*/
+🧩 Command:- /myref
+🖥 BJS:-
+
+let friend = Libs.ReferralLib.getAttractedBy();
+let msg = "You was attracted by: "
+
+if(friend){
+  msg = msg + "user " + Libs.commonLib.getLinkFor(friend);
+}else{
+  msg = "You was not attracted."
+}
+
+Bot.sendMessage(msg);
+
+🧩 Command:- /reflist
+🖥 BJS:-
 
 let refList = Libs.ReferralLib.getRefList()
 
 if (!refList.exist) {
   Bot.sendMessage("No any affiliated users")
+  return
+}
+
+if (!refList.last_calc_time) {
+  refList.recount({
+    // this command will be runned after recount
+    onComplete: "/reflist"
+  })
   return
 }
 
@@ -47,13 +61,14 @@ msg =
   msg +
   "\n----" +
   "\n*Last recount*" +
-  "\n  sec ago: " +
+  "\n  Ago: " +
   last_updated_time +
-  "\n  time, sec: " +
-  refList.last_calc_time.toFixed(4)
+  " sec\n  Time: " +
+  refList.last_calc_time.toFixed(4) +
+  " sec"
 
 if (needRecount(refList)) {
-  msg = msg + "\n recount started..."
+  msg = msg + "\n  Recount started..."
   refList.recount({
     // this command will be runned after recount
     // onComplete: 'onCompleteListRecount'
@@ -61,22 +76,22 @@ if (needRecount(refList)) {
 } else {
   msg =
     msg +
-    "\n  next recount after, sec: " +
-    needToWaitForNextRecount(refList).toFixed(4)
+    "\n  Next recount after: " +
+    needToWaitForNextRecount(refList).toFixed(4) +
+    " sec"
 }
 
 Bot.sendMessage(msg)
 
 // you need to recount list sometimes
 // such recount can be very slowly so we need to perform it not very often
-// https://help.bots.business/bjs/lists#recount-list
-function delayForNextRecount(list) {
+delayForNextRecount(list) {
   // Recount list not more often then 100 sec per each 0.1 last calc time
   // so if last calc time is 10 secs we need to wait 24 hours for new calc
   return (100 * list.last_calc_time) / 0.1
 }
 
-function needToWaitForNextRecount(list){
+function needToWaitForNextRecount(list) {
   return delayForNextRecount(list) - lastUpdatedSecAgo(list)
 }
 
@@ -87,4 +102,3 @@ function needRecount(list) {
 function lastUpdatedSecAgo(list) {
   return (new Date() - new Date(list.updated_at)) / 1000
 }
-
