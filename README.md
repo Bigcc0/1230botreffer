@@ -1,5 +1,5 @@
-# buildtest1230bot - chat bot
-It is repository for chat bot: [@buildtest1230bot](https://t.me/buildtest1230bot)
+# buildtest123003bot - chat bot
+It is repository for chat bot: [@buildtest123003bot](https://t.me/buildtest123003bot)
 
 ## What it is?
 This repository can be imported to [Bots.Business](https://bots.business) as a worked chat bot.

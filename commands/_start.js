@@ -6,51 +6,13 @@
   folder: 
 
   <<ANSWER
-How to use this bot? /howtouse
+This bot post information from user to this [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1cTGIgdMfWe2_elWhtLhQhgcM4YbSZq2HUIWv_3GuOPs/edit?usp=sharing)
 
-Get personal affiliate link: /mylink
-You was attracted by: /myref
-
-*Referral List*
-Get yours Referral List: /reflist
-
+Try post new data - /post
 
 
   ANSWER
-  keyboard: 🔗 My Link, 📜 My Refs, \n👨 My info, 📈 Top List
+  keyboard: 
   aliases: 
 CMD*/
-
-function doTouchOwnLink(){
-  Bot.sendMessage("You click on yours own link!");
-}
-
-function doAttracted(refUser){
-
-  Bot.sendMessage(
-    "Hello" + 
-    "\n\n" +
-    "You attracted by user: " + Libs.commonLib.getLinkFor(refUser));
-  
-  Bot.sendMessageToChatWithId(
-    refUser.telegramid,
-    "You just attract new user: " + Libs.commonLib.getLinkFor(user)
-  );
-}
-
-function doAlreadyAttracted(){
-  Bot.sendMessage("You was already attracted");
-}
-
-let trackOptions = {
-  onTouchOwnLink: doTouchOwnLink,
-  onAttracted: doAttracted,
-  onAlreadyAttracted: doAlreadyAttracted
-}
-
-Libs.ReferralLib.track(trackOptions);
-Bot.runCommand("/start02");
-
-
-
 

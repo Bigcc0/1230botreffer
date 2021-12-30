@@ -3,10 +3,14 @@
   help: 
   need_reply: 
   auto_retry_time: 
+  folder: 
   answer: 
   keyboard: 
   aliases: 
 CMD*/
+
+// Automatic fix
+var rowIndex;
 
 let newRow = {
   'Country': User.getProperty("country"),
@@ -21,7 +25,7 @@ let prms = {
   onError: "onError"
 }
 
-rowIndex = User.getProperty("rowIndex");
+var rowIndex = User.getProperty("rowIndex");
 if(rowIndex){
   prms.rowIndex = rowIndex;
   Libs.GoogleSpreadSheet.editRow(prms);
