@@ -25,4 +25,3 @@ Api.sendPhoto({
   reply_markup: { inline_keyboard: b5 },
   disable_web_page_preview: "true"
 })
-

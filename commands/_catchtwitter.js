@@ -11,7 +11,7 @@ CMD*/
 
 Api.deleteMessage({ chat_id: chat.chatid, message_id: request.message_id })
 if (message.includes("@")) {
-  User.setProperty("tweet", message, "string")
+  User.setProperty("tw", message, "string")
   Bot.runCommand("checkaddress")
   var msgid1 = User.getProperty("ok")
   var tokenad = Bot.getProperty("tokenad", "BSC(ERC20)")
@@ -29,4 +29,3 @@ if (message.includes("@")) {
   Bot.sendMessage("*🚫Invalid Format,Please Try Again*")
   Bot.runCommand("/catchtwitter")
 }
-

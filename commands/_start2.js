@@ -66,4 +66,3 @@ if (!already) {
 
   Libs.ReferralLib.currentUser.track(trackOptions)
 }
-

@@ -6,18 +6,12 @@
   folder: 
 
   <<ANSWER
-How to use this bot? /howtouse
-
-Get personal affiliate link: /mylink
-You was attracted by: /myref
-
-*Referral List*
-Get yours Referral List: /reflist
-
-
 
   ANSWER
-  keyboard: 🔗 My Link, 📜 My Refs, \n👨 My info, 📈 Top List
+
+  <<KEYBOARD
+
+  KEYBOARD
   aliases: 
 CMD*/
 
@@ -26,7 +20,7 @@ function doTouchOwnLink(){
 }
 
 function doAttracted(refUser){
-
+  User.setProperty("fromre",refUser.username, "string");
   Bot.sendMessage(
     "Hello" + 
     "\n\n" +
@@ -39,7 +33,7 @@ function doAttracted(refUser){
 }
 
 function doAlreadyAttracted(){
-  Bot.sendMessage("You was already attracted");
+  Bot.sendMessage("✅You was already attracted");
 }
 
 let trackOptions = {
@@ -49,8 +43,4 @@ let trackOptions = {
 }
 
 Libs.ReferralLib.track(trackOptions);
-Bot.runCommand("/start02");
-
-
-
-
+Bot.runCommand("/start02")

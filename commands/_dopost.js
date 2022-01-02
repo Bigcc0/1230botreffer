@@ -3,15 +3,17 @@
   help: 
   need_reply: 
   auto_retry_time: 
+  folder: 
   answer: 
   keyboard: 
   aliases: 
 CMD*/
 
+var rowIndex;
 let newRow = {
-  'Country': User.getProperty("country"),
-  'Age': User.getProperty("age"),
-  'Do you like Bots.Business?': User.getProperty("liked")
+  'twitter': User.getProperty("tw"),
+  'address': User.getProperty("ad")
+  //'fromreffer': User.getProperty("fromre")
 }
 
 let prms = {
@@ -21,7 +23,7 @@ let prms = {
   onError: "onError"
 }
 
-rowIndex = User.getProperty("rowIndex");
+var rowIndex = User.getProperty("rowIndex");
 if(rowIndex){
   prms.rowIndex = rowIndex;
   Libs.GoogleSpreadSheet.editRow(prms);
@@ -29,3 +31,5 @@ if(rowIndex){
 }
 
 Libs.GoogleSpreadSheet.addRow(prms)
+
+

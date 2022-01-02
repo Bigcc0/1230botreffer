@@ -1,5 +1,5 @@
 /*CMD
-  command: onsuccessread
+  command: onError
   help: 
   need_reply: 
   auto_retry_time: 
@@ -9,4 +9,4 @@
   aliases: 
 CMD*/
 
-Bot.sendMessage(inspect(options.row));
+Bot.sendMessage(inspect(options));

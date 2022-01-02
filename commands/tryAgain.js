@@ -11,5 +11,3 @@ CMD*/
 
 var button = [[{ title: "🔄 Try Again ", command: "checkaddress" }]]
 Bot.sendInlineKeyboard(button,"*❌ You Are Not Verified You Selected Wrong Emoji Try again*")
-
-

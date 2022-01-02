@@ -3,6 +3,7 @@
   help: 
   need_reply: false
   auto_retry_time: 
+  folder: 
   answer: Google App Url setuped
   keyboard: 
   aliases: 

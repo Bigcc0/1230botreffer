@@ -87,4 +87,3 @@ function needRecount(list) {
 function lastUpdatedSecAgo(list) {
   return (new Date() - new Date(list.updated_at)) / 1000
 }
-

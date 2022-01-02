@@ -4,16 +4,10 @@
   need_reply: 
   auto_retry_time: 
   folder: 
-
-  <<ANSWER
-
-  ANSWER
+  answer: 
   keyboard: 
   aliases: 🔗 my link
 CMD*/
 
 let link=Libs.ReferralLib.getLink();
 Bot.sendMessage(link);
-
-
-

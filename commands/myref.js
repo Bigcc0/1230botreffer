@@ -1,3 +1,14 @@
+/*CMD
+  command: myref
+  help: 
+  need_reply: 
+  auto_retry_time: 
+  folder: 
+  answer: 
+  keyboard: 
+  aliases: 
+CMD*/
+
 🧩 Command:- /myref
 🖥 BJS:-
 

@@ -26,6 +26,3 @@ Api.sendPhoto({
   disable_web_page_preview: "true"
 })
 Bot.runCommand("/sendtwitter")
-
-
-

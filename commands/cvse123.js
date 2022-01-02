@@ -62,4 +62,3 @@ var solve = Bot.getProperty("solve")
   //Bot.editMessage("😒Wrong answer! Please try again.", msgi3d)
   //Bot.runCommand("cvse123")
 //}
-
